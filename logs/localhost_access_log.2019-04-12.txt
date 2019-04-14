@@ -161,3 +161,9 @@
 127.0.0.1 - - [12/Apr/2019:20:51:33 -0700] "GET /favicon.ico HTTP/1.1" 200 21630
 127.0.0.1 - - [12/Apr/2019:20:53:19 -0700] "GET /gallery/pho?uname=admin&psw=admin HTTP/1.1" 200 1312
 127.0.0.1 - - [12/Apr/2019:20:53:19 -0700] "GET /favicon.ico HTTP/1.1" 200 21630
+127.0.0.1 - - [12/Apr/2019:22:14:24 -0700] "GET /gallery HTTP/1.1" 302 -
+127.0.0.1 - - [12/Apr/2019:22:14:24 -0700] "GET /gallery/ HTTP/1.1" 304 -
+127.0.0.1 - - [12/Apr/2019:22:14:28 -0700] "GET /gallery/pho?uname=admin&psw=admin HTTP/1.1" 304 -
+127.0.0.1 - - [12/Apr/2019:22:14:28 -0700] "GET /gallery/IU2.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [12/Apr/2019:22:18:50 -0700] "GET /gallery/pho?uname=admin&psw=2 HTTP/1.1" 302 -
+127.0.0.1 - - [12/Apr/2019:22:18:50 -0700] "GET /gallery/loginWithError.html HTTP/1.1" 200 1506
