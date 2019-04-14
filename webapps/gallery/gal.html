@@ -1,75 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.iu {
- text-align: center;
-}
-
-button {
-background-color: purple;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 20%;
-  display: inline-block;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 20%;
-  border-radius: 20%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-
-</style>
-</head>
-<body>
-
-
-<h2 align="center">Photo Gallery Application</h2>
-
-<!-- alt="Avatar" class="avatar"-->
-  <div class="imgcontainer">
-    <img id = "myImg" src="/gallery/IU2.jpg" width = "460" height = "345">
-
-</div>
-  <div class="iu">
-  <input type = "submit" value = "Prev" name = "prev">
-  <input type = "submit" value = "Next" name = "next">
-</div>
-
-  </body>
+   <head>
+      <title>File Uploading Form</title>
+   </head>
+   
+   <body>
+      <h3>File Upload:</h3>
+      Select a file to upload: <br />
+      <form action = "UploadServlet" method = "post" enctype = "multipart/form-data">
+         <input type = "file" name = "file" size = "5000" />
+         <br />
+         <input type = "submit" value = "Upload File" />
+      </form>
+   </body>
 </html>

@@ -10,22 +10,24 @@ public class HitServlet extends HttpServlet {
 	private String username, userPassword;
 	private String adminUsername = "admin";
 	private String adminuserPassword = "admin";
-
+	
 	private int	index = 0;
-	private	String btnL;
-	private	String btnR;
+	private	String btn;
 	private int size;
-	File f = new File("C:\\tomcat\\webapps\\gallery\\pics"); //file path
-	File[] fList = f.listFiles();
+
 	ArrayList<String> photoGallery = new ArrayList<String>();
 	
    public void init() throws ServletException {
       // Do required initialization
      // message = "Hello World";
+
    }
 
    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
    {
+	   	File f = new File("C:\\tomcat\\webapps\\gallery\\pics"); //file path
+		File[] fList = f.listFiles();
+		photoGallery.clear();
 		username = request.getParameter("uname");
 		userPassword = request.getParameter("psw");
 		// Set response content type
@@ -63,7 +65,7 @@ public class HitServlet extends HttpServlet {
 					"button:hover {opacity: 0.8;}"+
 					"</style>"+
 					"<body bgcolor=\"#f0f0f0\">\n" +
-					"<h1 align=\"center\"> Photo Gallery Application </h1>\n" +
+					"<h1 align=\"center\">Photo Gallery Application</h1>\n" +
 					"<ul>\n" +
 					
 					"<form action=\"pho?uname=" +adminUsername+ "&psw="+adminuserPassword+"\""+ "method=\"post\">"+
@@ -77,7 +79,7 @@ public class HitServlet extends HttpServlet {
 					"<div style=\"text-align: center;\">"+
 					"<button type=\"submit\" value=\"left\" name=\"btn\" >LEFT</button>" +
 					"<button type=\"submit\" value=\"right\" name=\"btn\"  >RIGHT</button>" +
-					"<button type=\"submit\" value=\"Upload\" name=\"btn\"  >RIGHT</button>" +
+					"<button type=\"submit\" value=\"upload\" name=\"btn\"  >UPLOAD</button>" +
 					"</div>"+
 					"</form>"+
 					"<br>\n" +		
@@ -92,14 +94,24 @@ public class HitServlet extends HttpServlet {
    }
    	public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
 	{
-	btnR = request.getParameter("btn");
-	if(btnR.equals("right"))
+	btn = request.getParameter("btn");
+	if(btn.equals("right"))
+	{
 	  index++;
-	else{
-		--index;
-		if (index <=0)
-			index = index + size;
+	  if (index >= size)
+		  index = 0;
 	}
+	if (btn.equals("left"))
+	{
+		index--;
+		if (index < 0)
+			index = size-1;
+	}
+	if (btn.equals("upload"))
+	{
+		request.getRequestDispatcher("/gal.html").forward(request, response);
+	}
+	
 
       doGet(request, response);
    }
